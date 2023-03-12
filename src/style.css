@@ -24,12 +24,13 @@ body header{
 
 body header img{
     margin-left: 2%;
+    margin-top: 1%;
     width: 15%; 
 }
 
 body header .jolteonRun{
     margin-left: 75%;
-    width: 5%;
+    width: 4%;
 }
 
 main .enter{
@@ -156,3 +157,101 @@ footer a{
 main .table-top::-webkit-scrollbar:vertical {
     width: 10px;
 }  */
+
+.fondoPokedex {
+    background-image: url(img/fondo-pokedex.jpg);
+}
+header .inicio {
+    font-family:sans-serif, Geneva, Tahoma, sans-serif, Haettenschweiler, 'Arial Narrow Bold', sans-serif, 'Times New Roman', Times, serif, Cochin, Georgia, Times, 'Times New Roman', serif, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, Times, serif, Tahoma, Geneva, Verdana, sans-serif, 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, 'Arial Narrow', Arial, sans-serif, Courier, monospace ;
+    font-size: 2.5vh;
+    color: white;
+    margin-left: 73%;
+    text-decoration: none;
+    border-radius: 20px;
+    background-image: linear-gradient(180deg, #1E354F 46.17%, #3D5775 100%);
+    padding: 1% 2%;
+    margin-top: 1%;
+    position: absolute;
+    width: 3.8%;
+    height: 20%;
+    left: 15%;
+    top: 7%;
+}
+header .inicio:hover {
+    box-shadow: 0px 3px 2px #FBD71F;
+}
+.main-pokedex{
+    display: inline-flex;
+    height: 75%;
+    margin-top: 7%;
+    width: 99.5%;
+}
+.main-pokedex .filter{
+    height: 100%;
+    width: 20%;
+    border: 5px solid rgb(136, 10, 10);
+}
+.main-pokedex .filter .filter-container{
+    margin: 2%;
+    height: 20%;
+}
+.filter-btn {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, Cochin, Georgia, Times, 'Times New Roman', serif, Haettenschweiler, 'Arial Narrow Bold', sans-serif, 'Arial Narrow', Arial, sans-serif, Courier, monospace, Geneva, Tahoma, sans-serif;
+    font-size: small;
+    width: 90%;
+}
+.filter-btn button {
+    padding: 3% 10%;
+    border-radius: 0px 15px 15px 0px;
+    border: #00A4BD;
+    background-color: #70DBA1;
+    width: 100%;
+    font-size: medium;
+    text-align: right;
+    letter-spacing: .2em;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, Cochin, Georgia, Times, 'Times New Roman', serif, Haettenschweiler, 'Arial Narrow Bold', sans-serif, 'Arial Narrow', Arial, sans-serif, Courier, monospace, Geneva, Tahoma, sans-serif;
+}
+.filter-btn-content {
+
+    display: none;
+    position: absolute;
+    width: 100%;
+    overflow: auto;
+    max-height: 600%;
+    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);    
+    z-index: 1;    
+}
+.filter-btn:hover .filter-btn-content {
+    display: block;
+}
+.filter-btn-content span {
+    text-align: center;
+    display:block;
+    padding: 5px; 
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgba(30, 53, 79, 0.82);   
+}
+.filter-btn-content span:hover {
+    background-color: rgb(128, 147, 167);
+}
+
+.main-pokedex .listado{
+    border: 5px solid rgb(31, 193, 53);
+    width: 80%;
+    overflow: auto;
+    max-height: 100%;
+    display: block;
+}
+.listado .buscador{
+    border: 3px solid rgba(249, 75, 200, 1);  
+}
+
+.listado .listado-pkmn{
+    border: 3px solid rgb(196, 240, 20); 
+    overflow: auto;
+    max-height: 98%;
+    
+}
