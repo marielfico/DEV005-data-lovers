@@ -14,12 +14,12 @@
           <div class="filter-btn">
             <button>N° Pokedex ▼</button>
             <div class="filter-btn-content">
-              <span>0 - 251</span>
-              <span>251 - 0</span>
+              <span id="menor">0 - 251</span>
+              <span id="mayor">251 - 0</span>
             </div>
           </div>
-          <div>
-            0-255
+          <div id="numero251">
+            - -
           </div>
         </div>
         <div class="filter-container">
@@ -90,10 +90,20 @@
       </section>
       <section class="listado">
         <div class="buscador">
-          Buscar pokemon: <input type="search" name="busquedapkmn" pattern="[A-Za-z0-9]{8,20}" title="Escribe el nombre del pokemon" required>
-          <input type="submit" value="Buscar">
+          Buscar pokemon: <input type="search" name="busquedapkmn" pattern="[A-Za-z0-9]{8,20}" title="Escribe el nombre del pokemon" placeholder="Ej: lugia" required>
+          <input type="submit" value="🔍︎" class="lupa">
         </div>
-        <div class="listado-pkmn"></div>
+        <div class="listado-pkmn">
+          <template>
+            <div class="container">
+              <div class="container-dex">N° <span class="container-num"></span></div>
+              <img class="container-img">
+              <div class="container-name"></div>
+              <div><span class="container-type1"></span><span class="container-type2"></span></div>
+            </div>
+          </template>
+          <div class="dataList"></div>
+        </div>
       </section>
 
     </main>

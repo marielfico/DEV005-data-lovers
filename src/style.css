@@ -189,11 +189,13 @@ header .inicio:hover {
 .main-pokedex .filter{
     height: 100%;
     width: 20%;
-    border: 5px solid rgb(136, 10, 10);
 }
 .main-pokedex .filter .filter-container{
     margin: 2%;
     height: 20%;
+}
+.filter-container #numero251 {
+    border: 2px solid rgb(69, 7, 192);
 }
 .filter-btn {
     display: inline-block;
@@ -215,7 +217,6 @@ header .inicio:hover {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, Cochin, Georgia, Times, 'Times New Roman', serif, Haettenschweiler, 'Arial Narrow Bold', sans-serif, 'Arial Narrow', Arial, sans-serif, Courier, monospace, Geneva, Tahoma, sans-serif;
 }
 .filter-btn-content {
-
     display: none;
     position: absolute;
     width: 100%;
@@ -239,19 +240,192 @@ header .inicio:hover {
 }
 
 .main-pokedex .listado{
-    border: 5px solid rgb(31, 193, 53);
-    width: 80%;
-    overflow: auto;
-    max-height: 100%;
+
+    width: 80%; 
     display: block;
 }
 .listado .buscador{
-    border: 3px solid rgba(249, 75, 200, 1);  
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ; 
+    color:#1E354F;
+    padding: 1% 0 1% 55%;
 }
-
-.listado .listado-pkmn{
-    border: 3px solid rgb(196, 240, 20); 
+.listado .buscador input:first-child{
+    border-radius: 7px;
+    padding: .3em 1em;
+    border-color: #9d9b9b;
+}
+.listado .buscador .lupa{
+    padding: .2em .8em .3em;
+    border-radius: 7px;
+    background-color: #70DBA1;
+    border-color: #70DBA1;
+    margin-left: 1%;
+}
+.listado .listado-pkmn{ 
     overflow: auto;
-    max-height: 98%;
-    
+    max-height: 90%;
+}
+.listado .listado-pkmn::-webkit-scrollbar{
+    width: 20px;
+}
+.listado .listado-pkmn::-webkit-scrollbar-track{
+    background: #3d577559;
+    border-radius: 30px;
+}
+.listado .listado-pkmn::-webkit-scrollbar-thumb{
+    background-color: #1E354F;
+    border-radius: 30px;
+}
+.listado .listado-pkmn .dataList{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    gap: 10%;
+    justify-content: center;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.listado .listado-pkmn .dataList .container{
+    margin: 2% 1% 2% 1%;
+}
+.listado .listado-pkmn .dataList .container:hover{
+    transform: scale(1.2);
+}
+.container-dex{
+    text-align: left;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, Times, serif;
+    font-size: .8em;
+    font-weight: bold;
+}
+.container-type1{
+    padding-right: .5em;
+}
+.container-type2{
+    padding-left: .5em;
+}
+.grass::before{
+    background-color: #38BD6E;
+    content: "Planta";
+    padding: 0 .5em;
+    border-radius: 8px;
+    font-size: .9em;
+}
+.poison::before{
+    background-color: #A28CE2;
+    content: "Veneno";
+    padding: 0 .5em;
+    border-radius: 8px;
+    font-size: .9em;
+}
+.water::before{
+    background-color: #4AB6F3;
+    content: "Agua";
+    padding: 0 .5em;
+    border-radius: 8px;
+    font-size: .9em;
+}
+.electric::before{
+    background-color: #FAD61F;
+    content: "Eléctrico";
+    padding: 0 .5em;
+    border-radius: 8px;
+    font-size: .9em;
+}
+.fighting::before{
+    background-color: #DE5466;
+    content: "Lucha";
+    padding: 0 .5em;
+    border-radius: 8px;
+    font-size: .9em;
+}
+.fairy::before{
+    background-color: #F9B1E5;
+    content: "Hada";
+    padding: 0 .5em;
+    border-radius: 8px;
+    font-size: .9em;
+}
+.fire::before{
+    background-color: #F78B28;
+    content: "Fuego";
+    padding: 0 .5em;
+    border-radius: 8px;
+    font-size: .9em;
+}
+.ice::before{
+    background-color: #95FAFA;
+    content: "Hielo";
+    padding: 0 .5em;
+    border-radius: 8px;
+    font-size: .9em;
+}
+.flying::before{
+    background: linear-gradient(180deg, #63CAF6 0%, rgba(90, 142, 164, 0.481015) 57.63%, rgba(81, 85, 87, 0) 100%);
+    content: "Volador";
+    padding: 0 .5em;
+    border-radius: 8px;
+    font-size: .9em;
+}
+.psychic::before{
+    background-color: #FF8B7A;
+    content: "Psíquico";
+    padding: 0 .5em;
+    border-radius: 8px;
+    font-size: .9em;
+}
+.normal::before{
+    background-color: #C0C0BA;
+    content: "Normal";
+    padding: 0 .5em;
+    border-radius: 8px;
+    font-size: .9em;
+}
+.steel::before{
+    background-color: #2C9399;
+    content: "Acero";
+    padding: 0 .5em;
+    border-radius: 8px;
+    font-size: .9em;
+}
+.bug::before{
+    background-color: #8FD941;
+    content: "Bicho";
+    padding: 0 .5em;
+    border-radius: 8px;
+    font-size: .9em;
+}
+.dragon::before{
+    background-color: #327ECB;
+    content: "Dragon";
+    padding: 0 .5em;
+    border-radius: 8px;
+    font-size: .9em;
+}
+.dark::before{
+    background-color: rgba(91, 96, 116, 0.75);
+    content: "Siniestro";
+    padding: 0 .5em;
+    border-radius: 8px;
+    font-size: .9em;
+}
+.ground::before{
+    background-color: #D3C893;
+    content: "Tierra";
+    padding: 0 .5em;
+    border-radius: 8px;
+    font-size: .9em;
+}
+.rock::before{
+    background-color: #C9B758;
+    content: "Roca";
+    padding: 0 .5em;
+    border-radius: 8px;
+    font-size: .9em;
+}
+.ghost::before{
+    background-color: #F872E2;
+    content: "Fantasma";
+    padding: 0 .5em;
+    border-radius: 8px;
+    font-size: .9em;
 }
