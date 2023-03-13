@@ -17,8 +17,17 @@ topPkmn.sort((a, b) => {
 
 export const topPkmnSlice = topPkmn.slice(0, 10);
 
-//
+//Pokemon en lista
 
+export const listPkmn = dataPkmn.pokemon.map((y) => {
+  return {
+    numList: y.num,
+    nameList: y.name,
+    typeList: y.type,
+    imgList: y.img
+  }
+});
+console.log(listPkmn);
 
 
 
