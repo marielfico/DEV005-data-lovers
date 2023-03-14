@@ -24,7 +24,8 @@ export const listPkmn = dataPkmn.pokemon.map((y) => {
     numList: y.num,
     nameList: y.name,
     typeList: y.type,
-    imgList: y.img
+    imgList: y.img,
+    pcList: y.stats
   }
 });
 console.log(listPkmn);

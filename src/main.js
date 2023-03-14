@@ -19,17 +19,82 @@ for (let i=0; i<listPkmn.length; i++){
   dataList.appendChild(dataListClone);
 } 
 
-
-
-
-
 //Imprimir el valor de N°pokedex
-const numero251 = document.getElementById('numero251');
-/* const menorPokedex = document.getElementById('menor'); */
+const printPokedex = document.getElementById('printPokedex');
+const menor = document.getElementById('menor');
 const mayor = document.getElementById('mayor');
-mayor.addEventListener('click', function(){
-  numero251.textContent = 'aaa';
+menor.addEventListener('click', function(){
+  printPokedex.textContent = '0 - 251';
 });
+mayor.addEventListener('click', function(){
+  printPokedex.textContent = '251 - 0';
+});
+
+//Imprimir el valor en región
+const printRegion = document.getElementById('printRegion');
+const regionK = document.getElementById('regionK');
+const regionJ = document.getElementById('regionJ');
+regionK.addEventListener('click', function(){
+  printRegion.innerHTML = '<img class="regionImg" src="img/kanto.png">';
+});
+regionJ.addEventListener('click', function(){
+  printRegion.innerHTML = '<img class="regionImg" src="img/johto.png">';
+});
+
+//Imprimir el valor en tipo
+const printType = document.getElementById('printType');
+const typeP = document.querySelectorAll('.type-p');
+const typeNew = ['<img class="iconImg" src="img/veneno.png"><span class="poison"></span>',
+  '<img class="iconImg" src="img/agua.png"><span class="water"></span>',
+  '<img class="iconImg" src="img/dragon.png"><span class="dragon"></span>',
+  '<img class="iconImg" src="img/fuego.png"><span class="fire"></span>',
+  '<img class="iconImg" src="img/hada.png"><span class="fairy"></span>',
+  '<img class="iconImg" src="img/lucha.png"><span class="fighting"></span>',
+  '<img class="iconImg" src="img/hierba.png"><span class="grass"></span>',
+  '<img class="iconImg" src="img/roca.png"><span class="rock"></span>',
+  '<img class="iconImg" src="img/tierra.png"><span class="ground"></span>',
+  '<img class="iconImg" src="img/acero.png"><span class="steel"></span>',
+  '<img class="iconImg" src="img/bicho.png"><span class="bug"></span>',
+  '<img class="iconImg" src="img/electrico.png"><span class="electric"></span>',
+  '<img class="iconImg" src="img/fantasma.png"><span class="ghost"></span>',
+  '<img class="iconImg" src="img/hielo.png"><span class="ice"></span>',
+  '<img class="iconImg" src="img/normal.png"><span class="normal"></span>',
+  '<img class="iconImg" src="img/psiquico.png"><span class="psychic"></span>',
+  '<img class="iconImg" src="img/siniestro.png"><span class="dark"></span>',
+  '<img class="iconImg" src="img/volador.png"><span class="flying"></span>'
+];
+for (let i=0; i<typeP.length; i++){
+  typeP[i].addEventListener("click", function(){
+    printType.innerHTML = typeNew[i];
+  })
+}
+
+//Imprimir el valor en rareza
+const printRarity = document.getElementById('printRarity');
+const rarityN = document.getElementById('rarityN');
+const rarityM = document.getElementById('rarityM');
+const rarityL = document.getElementById('rarityL');
+rarityN.addEventListener('click', function(){
+  printRarity.innerHTML = '<img class="rarityImg" src="img/pokebola_normal.gif">';
+});
+rarityM.addEventListener('click', function(){
+  printRarity.innerHTML = '<img class="rarityImg" src="img/pokebola_mitico.gif">';
+});
+rarityL.addEventListener('click', function(){
+  printRarity.innerHTML = '<img class="rarityImg" src="img/pokebola_legendario.gif">';
+});
+
+//Imprimir el valor de PC
+const printPC = document.getElementById('printPC');
+const maxPC = document.getElementById('maxPC');
+const minPC = document.getElementById('minPC');
+maxPC.addEventListener('click', function(){
+  printPC.textContent = 'Max PC';
+});
+minPC.addEventListener('click', function(){
+  printPC.textContent = 'Min PC';
+});
+
 
 
 
