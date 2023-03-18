@@ -11,86 +11,81 @@
     <main class="main-pokedex">
       <section class="filter">
         <div class="filter-container">
-          <div class="filter-btn">
-            <button>N° Pokedex ▼</button>
-            <div class="filter-btn-content">
-              <span id="menor">0 - 251</span>
-              <span id="mayor">251 - 0</span>
-            </div>
-          </div>
-          <div id="printPokedex" class="filter-show">
-            Ningún seleccionado
-          </div>
-        </div>
-        <div class="filter-container">
-          <div class="filter-btn">
-            <button>Región ▼</button>
-            <div class="filter-btn-content">
-              <span id="regionK">Kanto</span>
-              <span id="regionJ">Johto</span>
-            </div>
-          </div>
-          <div id="printRegion" class="filter-show">
-            Ningún seleccionado
+          <div class="filter-containerChild">
+            <label for="selectPokedex">Pokedex ▼</label>
+            <br>
+            <select class="filter-select" id="selectPokedex">
+              <option value="" id="optionPokedexNone">Ninguno</option>
+              <option value="menor" id="optionPokedexMenor">0 - 251</option>
+              <option value="mayor" id="optionPokedexMayor">251 - 0</option>
+            </select>
           </div>
         </div>
         <div class="filter-container">
-          <div class="filter-btn">
-            <button>Tipo ▼</button>
-            <div class="filter-btn-content">
-              <span id="typeVeneno" class="type-p">Veneno</span>
-              <span id="typeAgua" class="type-p">Agua</span>
-              <span id="typeDragon" class="type-p">Dragón</span>
-              <span id="typeFuego" class="type-p">Fuego</span>
-              <span id="typeHada" class="type-p">Hada</span>
-              <span id="typeLucha" class="type-p">Lucha</span>
-              <span id="typePlanta" class="type-p">Planta</span>
-              <span id="typeRoca" class="type-p">Roca</span>
-              <span id="typeTierra" class="type-p">Tierra</span>
-              <span id="typeAcero" class="type-p">Acero</span>
-              <span id="typeBicho" class="type-p">Bicho</span>
-              <span id="typeElectrico" class="type-p">Eléctrico</span>
-              <span id="typeFantasma" class="type-p">Fantasma</span>
-              <span id="typeHielo" class="type-p">Hielo</span>
-              <span id="typeNormal" class="type-p">Normal</span>
-              <span id="typePsiquico" class="type-p">Psíquico</span>
-              <span id="typeSiniestro" class="type-p">Siniestro</span>
-              <span id="typeVolador" class="type-p">Volador</span>
-            </div>
-          </div>
-          <div id="printType" class="filter-show">
-            Ningún seleccionado
+          <div class="filter-containerChild">
+            <label for="selectRegion">Región ▼</label>
+            <br>
+            <select class="filter-select" id="selectRegion">
+              <option value="">Ninguno</option>
+              <option value="kanto">Kanto</option>
+              <option value="johto">Johto</option>
+            </select>
           </div>
         </div>
         <div class="filter-container">
-          <div class="filter-btn">
-            <button>Rareza ▼</button>
-            <div class="filter-btn-content">
-              <span id="rarityN">Normal</span>
-              <span id="rarityM">Mítico</span>
-              <span id="rarityL">Legendario</span>
-            </div>
-          </div>
-          <div id="printRarity" class="filter-show">
-            Ningún seleccionado
+          <div class="filter-containerChild">
+            <label for="selectType">Tipo ▼</label>
+            <br>
+            <select class="filter-select" id="selectType">
+              <option value="">Ninguno</option>
+              <option class="type-p" value="poison">Veneno</option>
+              <option class="type-p" value="water">Agua</option>
+              <option class="type-p" value="dragon">Dragón</option>
+              <option class="type-p" value="fire">Fuego</option>
+              <option class="type-p" value="fairy">Hada</option>
+              <option class="type-p" value="fighting">Lucha</option>
+              <option class="type-p" value="grass">Planta</option>
+              <option class="type-p" value="rock">Roca</option>
+              <option class="type-p" value="ground">Tierra</option>
+              <option class="type-p" value="steel">Acero</option>
+              <option class="type-p" value="bug">Bicho</option>
+              <option class="type-p" value="electric">Eléctrico</option>
+              <option class="type-p" value="ghost">Fantasma</option>
+              <option class="type-p" value="ice">Hielo</option>
+              <option class="type-p" value="normal">Normal</option>
+              <option class="type-p" value="psychic">Psíquico</option>
+              <option class="type-p" value="dark">Siniestro</option>
+              <option class="type-p" value="flying">Volador</option>
+            </select>
           </div>
         </div>
         <div class="filter-container">
-          <div class="filter-btn">
-            <button>P. Combate ▼</button>
-            <div class="filter-btn-content">
-              <span id="maxPC">Máximo PC</span>
-              <span id="minPC">Mínimo PC</span>
-            </div>
+          <div class="filter-containerChild">
+            <label for="selectRareza">Rareza ▼</label>
+            <br>
+            <select class="filter-select" id="selectRareza">
+              <option value="">Ninguno</option>
+              <option value="normal">Normal</option>
+              <option value="mythic">Mítico</option>
+              <option value="legendary">Legendario</option>
+            </select>
           </div>
-          <div id="printPC" class="filter-show">
-            Ningún seleccionado
+        </div>
+        <div class="filter-container">
+          <div class="filter-containerChild">
+            <label for="selectPC">P.Combate ▼</label>
+            <br>
+            <select class="filter-select" id="selectPC">
+              <option value="">Ninguno</option>
+              <option value="maxPC">Máximo PC</option>
+              <option value="minPC">Mínimo PC</option>
+            </select>
           </div>
         </div>
       </section>
       <section class="listado">
         <div class="buscador">
-          Buscar pokemon: <input type="search" name="busquedapkmn" pattern="[A-Za-z0-9]{8,20}" title="Escribe el nombre del pokemon" placeholder="Ej: lugia" required>
+          Buscar pokemon: <input type="search" id="busquedapkmn" onkeyup="search()" name="busquedapkmn" pattern="[A-Za-z0-9]{8,20}" title="Escribe el nombre del pokemon" placeholder="Ej: lugia" required>
           <input type="submit" value="🔍︎" class="lupa">
         </div>
         <div class="listado-pkmn">
