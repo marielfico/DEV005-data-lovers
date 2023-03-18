@@ -74,25 +74,6 @@ export function filtrarCp(cp){
 }
 
 
-
-  
-
-
-
-
-
-
-
-
-
-/* function ordernarPokedex(numero){
-  const arrayOrden = dataPkmn.pokemon
-  if(numero === 'menor'){
-    return 
-  }
-}
- */
-
 /* export const example = () => {
   return 'example';
 };
