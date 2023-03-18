@@ -39,13 +39,43 @@ export function  filtrarRegion(region){
   return arrayRegion;
 }
 
+//FILTRAR POR TIPO:
 export function filtrarTipo(tipo){
-  const arrayTipo=dataPkmn.pokemon.filter(pkm=>{
-    pkm.type===`${tipo}`
-    return true
-  })
-  return arrayTipo;
+  const tipoPkm=dataPkmn.pokemon.filter(pkm=>
+    pkm.type[0]===tipo || pkm.type[1]===tipo)
+  return tipoPkm;
 }
+
+//FILTRAR POR ORDEN 
+export function ordenado(orden){
+  if (orden==='menor'){
+    return dataPkmn.pokemon
+  }else if(orden==='mayor'){
+    const pkmOrdenado=dataPkmn.pokemon.reverse();
+    return pkmOrdenado 
+  }
+} 
+//FILTRAR POR RAREZA:
+export function filtrarRareza(rareza){
+  const rarezaPkm=dataPkmn.pokemon.filter(pkm=>
+    pkm['pokemon-rarity']===rareza)
+  return rarezaPkm;
+}
+//FILTRAR POR MAX-CP:
+export function filtrarCp(cp){
+  const cpPkm=dataPkmn.pokemon.sort((a,b)=>{
+    return b.stats['max-cp']-a.stats['max-cp']
+  })
+  if(cp === 'maximo'){
+    return cpPkm
+  }else if(cp ==='minimo'){
+    return cpPkm.reverse()
+  }
+}
+
+
+
+  
 
 
 
