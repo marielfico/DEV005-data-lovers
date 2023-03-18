@@ -93,8 +93,4 @@ selectPC.addEventListener('change', changeOptionCP);
 
 
 
-
-
-
-//console.log(top10);
 console.log(dataPkmn);
