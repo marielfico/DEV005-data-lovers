@@ -1,25 +1,52 @@
-import { top10, listPkmn } from './data.js';
+import {listPkmn, filtrarRegion} from './data.js';
 import dataPkmn from './data/pokemon/pokemon.js';
-
 
 //Pokemon - listado
 const template = document.querySelector('template');
 const dataList = document.querySelector('.dataList');
-for (let i=0; i<listPkmn.length; i++){
-  const dataListClone = template.content.cloneNode(true);
-  dataListClone.querySelector('.container-num').innerHTML =listPkmn[i].numList;
-  dataListClone.querySelector('.container-img').setAttribute("src", listPkmn[i].imgList);
-  dataListClone.querySelector('.container-name').innerHTML =listPkmn[i].nameList.toUpperCase();
-  if(listPkmn[i].typeList.length>1){
-    dataListClone.querySelector('.container-type1').setAttribute("class", `container-type1  ${listPkmn[i].typeList[0]}`);
-    dataListClone.querySelector('.container-type2').setAttribute("class", listPkmn[i].typeList[1]);
-  }else{
-    dataListClone.querySelector('.container-type1').setAttribute("class", listPkmn[i].typeList[0]);
-  }
-  dataList.appendChild(dataListClone);
-} 
+function pintar(datosAPintar){
+  dataList.innerHTML='';
+  for (let i=0; i<datosAPintar.length; i++){
+    const dataListClone = template.content.cloneNode(true);
+    dataListClone.querySelector('.container-num').innerHTML =datosAPintar[i].num;
+    dataListClone.querySelector('.container-img').setAttribute("src", datosAPintar[i].img);
+    dataListClone.querySelector('.container-name').innerHTML =datosAPintar[i].name.toUpperCase();
+    if(datosAPintar[i].type.length>1){
+      dataListClone.querySelector('.container-type1').setAttribute("class", `container-type1  ${datosAPintar[i].type[0]}`);
+      dataListClone.querySelector('.container-type2').setAttribute("class", datosAPintar[i].type[1]);
+    }else{
+      dataListClone.querySelector('.container-type1').setAttribute("class", datosAPintar[i].type[0]);
+    }
+    dataList.appendChild(dataListClone);
+  } 
+}
+pintar(listPkmn);
+//n° pokedex
+const selectPokedex = document.getElementById('selectPokedex')
+const changeOptionPokedex = () => {
+  console.log('Cambio');
+};
+selectPokedex.addEventListener('change', changeOptionPokedex)
 
-//Imprimir el valor de N°pokedex
+//region
+const selectRegion = document.getElementById('selectRegion')
+const changeOptionRegion = () => {
+  const optionRegion = selectRegion.options[selectRegion.selectedIndex].value;
+  if(optionRegion === 'kanto'){
+    const dataKanto=filtrarRegion('kanto');
+    pintar(dataKanto)
+  }else if(optionRegion === 'johto'){
+    const dataJohto=filtrarRegion('johto');
+    pintar(dataJohto)
+  }else if(optionRegion === ''){
+    pintar(listPkmn);
+  }
+  
+  //console.log('Cambio2');
+};
+selectRegion.addEventListener('change', changeOptionRegion)
+
+/* //Imprimir el valor de N°pokedex
 const printPokedex = document.getElementById('printPokedex');
 const menor = document.getElementById('menor');
 const mayor = document.getElementById('mayor');
@@ -76,6 +103,7 @@ const rarityM = document.getElementById('rarityM');
 const rarityL = document.getElementById('rarityL');
 rarityN.addEventListener('click', function(){
   printRarity.innerHTML = '<img class="rarityImg" src="img/pokebola_normal.gif">';
+  
 });
 rarityM.addEventListener('click', function(){
   printRarity.innerHTML = '<img class="rarityImg" src="img/pokebola_mitico.gif">';
@@ -95,7 +123,7 @@ minPC.addEventListener('click', function(){
   printPC.textContent = 'Min PC';
 });
 
-
+ */
 
 
 /* const pigdeyImg = document.getElementById('img11');
@@ -115,4 +143,4 @@ pigdeyImg.setAttribute('src', imgOne);
 
 
 //console.log(top10);
-console.log(top10, dataPkmn);
+console.log(dataPkmn);

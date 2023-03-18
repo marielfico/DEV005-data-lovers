@@ -18,17 +18,34 @@ topPkmn.sort((a, b) => {
 export const topPkmnSlice = topPkmn.slice(0, 10);
 
 //Pokemon en lista
-
 export const listPkmn = dataPkmn.pokemon.map((y) => {
   return {
-    numList: y.num,
-    nameList: y.name,
-    typeList: y.type,
-    imgList: y.img,
-    pcList: y.stats
+    num: y.num,
+    name: y.name,
+    type: y.type,
+    img: y.img,
+    pc: y.stats,
+    rarity: y['pokemon-rarity'],
+    region: y.region
   }
 });
-console.log(listPkmn);
+//Filtrar por region
+export function  filtrarRegion(region){
+  const arrayRegion=dataPkmn.pokemon.filter(pkm =>{
+    if(pkm.generation.name===`${region}`){
+      return true
+    }
+  })
+  return arrayRegion;
+}
+
+export function filtrarTipo(tipo){
+  const arrayTipo=dataPkmn.pokemon.filter(pkm=>{
+    pkm.type===`${tipo}`
+    return true
+  })
+  return arrayTipo;
+}
 
 
 
@@ -38,16 +55,13 @@ console.log(listPkmn);
 
 
 
-
-
-
-const nameP = dataPkmn.pokemon[0].name;
-const spanP = dataPkmn.pokemon[0]['spawn-chance'];
-export const top10 = (a, b) => {
-  
-  return a + b;
-};
-console.log(top10(nameP, spanP));
+/* function ordernarPokedex(numero){
+  const arrayOrden = dataPkmn.pokemon
+  if(numero === 'menor'){
+    return 
+  }
+}
+ */
 
 /* export const example = () => {
   return 'example';
