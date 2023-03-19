@@ -10,10 +10,6 @@ input[type="search"]::-webkit-search-results-decoration {
     display: none;
 }
 
-
-
-
-
 html, body{
     height: 100%;
     width: 100%;
@@ -245,19 +241,20 @@ header .inicio:hover {
 .listado .buscador{
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ; 
     color:#1E354F;
-    padding: 1% 0 1% 55%;
+    padding: 1% 0 1% 5%;
 }
-.listado .buscador input:first-child{
+.listado .buscador .buscador-input{
     border-radius: 7px;
     padding: .3em 1em;
     border-color: #9d9b9b;
 }
 .listado .buscador .lupa{
-    padding: .2em .8em .3em;
+    padding: .5em;
     border-radius: 7px;
     background-color: #70DBA1;
     border-color: #70DBA1;
-    margin-left: 1%;
+    margin-right: 45%;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 .listado .listado-pkmn{ 
     overflow: auto;

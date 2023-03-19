@@ -104,3 +104,9 @@ keyUp.addEventListener('keyup', (e)=>{
   } )
   pintar(arrayBuscar);
 })
+//boton reiniciar pokedex
+const btn = document.querySelector('.lupa');
+btn.addEventListener('click', limpiar)
+function limpiar(){
+  window.location.reload();
+}
