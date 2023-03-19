@@ -47,14 +47,18 @@ export function filtrarTipo(tipo){
 }
 
 //FILTRAR POR ORDEN 
-export function ordenado(orden){
-  if (orden==='menor'){
-    return dataPkmn.pokemon
-  }else if(orden==='mayor'){
-    const pkmOrdenado=dataPkmn.pokemon.reverse();
-    return pkmOrdenado 
-  }
-} 
+
+export function filtrarOrden(ascDesc){
+  const ordenAscDesc=dataPkmn.pokemon.sort(function(a,b){
+    if(ascDesc==='menor'){ 
+      return a.num-b.num;
+    }else{if(ascDesc==='mayor'){
+      return b.num-a.num;
+    }
+    }   
+  })
+  return ordenAscDesc;
+}
 //FILTRAR POR RAREZA:
 export function filtrarRareza(rareza){
   const rarezaPkm=dataPkmn.pokemon.filter(pkm=>

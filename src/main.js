@@ -1,5 +1,6 @@
-import {listPkmn, filtrarRegion, ordenado, filtrarTipo, filtrarRareza, filtrarCp} from './data.js';
-import dataPkmn from './data/pokemon/pokemon.js';
+import {listPkmn, filtrarRegion, filtrarOrden, filtrarTipo, filtrarRareza, filtrarCp} from './data.js';
+import pokemon from './data/pokemon/pokemon.js';
+//import dataPkmn from './data/pokemon/pokemon.js';
 
 //Pokemon - listado
 const template = document.querySelector('template');
@@ -23,20 +24,16 @@ function pintar(datosAPintar){
 pintar(listPkmn);
 //n° pokedex
 const selectPokedex = document.getElementById('selectPokedex')
-const changeOptionPokedex = () => {
+function changeOptionPokedex  ()  {
   const valor=selectPokedex.value;
-  if(valor==='menor'){
-    const dataMenor=ordenado('menor');
-    pintar(dataMenor);
-  }else if(valor==='mayor'){
-    const dataMayor=ordenado('mayor');
-    pintar(dataMayor);
-  }else if(valor===''){
-    pintar(listPkmn);  
+  if(valor===''){
+    pintar(listPkmn);
+  }else{
+    const orden=filtrarOrden(valor);
+    pintar(orden)
   }
-};
+}
 selectPokedex.addEventListener('change', changeOptionPokedex)
-
 //region
 const selectRegion = document.getElementById('selectRegion')
 const changeOptionRegion = () => {
@@ -64,7 +61,6 @@ const changeOptionType=()=>{
   }
 }
 selectType.addEventListener('change', changeOptionType)
-
 //FILTRAR POR RAREZA
 const selectRareza=document.getElementById('selectRareza');
 const changeOptionRareza=()=>{
@@ -89,8 +85,34 @@ const changeOptionCP=()=>{
   }
 }
 selectPC.addEventListener('change', changeOptionCP);
+//BUSCAR POKÉMON
+//Limitar caracteres en input
+const busquedapkmn=document.getElementById('busquedapkmn');
+busquedapkmn.addEventListener('keydown', (e)=>{
+  if((e.keyCode < 48 || e.keyCode > 57) && (e.keyCode < 65 || e.keyCode > 90) && e.keyCode !==8 && e.keyCode !==37 && e.keyCode !== 39 && e.keyCode !== 46)
+    e.preventDefault();
+})
 
+const keyUp=document.getElementById('busquedapkmn')
+keyUp.addEventListener('keyup', (e)=>{
+  const inputBuscar=e.target.value.toLowerCase();  
+  listPkmn.forEach(pokemon =>{
+    const coincidencia=pokemon.name.match(inputBuscar);
+    const containterPkm=document.querySelectorAll('.container');
+    if (coincidencia!==null){
+      const divNamePkm=document.querySelectorAll('.container-name');
+      divNamePkm.forEach(nombre =>{
+        if (nombre.textContent.toLowerCase=== coincidencia.input){
+          containterPkm.classList.add('ocultar');
+        }
+      })
+      console.log(coincidencia.input);
 
-
-
-console.log(dataPkmn);
+    
+    
+    }
+  })
+  
+  //pintar(listPkmn);
+  //console.log(inputBuscar);
+})
