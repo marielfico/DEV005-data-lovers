@@ -1,5 +1,5 @@
 import {listPkmn, filtrarRegion, filtrarOrden, filtrarTipo, filtrarRareza, filtrarCp} from './data.js';
-import pokemon from './data/pokemon/pokemon.js';
+//import pokemon from './data/pokemon/pokemon.js';
 //import dataPkmn from './data/pokemon/pokemon.js';
 
 //Pokemon - listado
@@ -92,27 +92,15 @@ busquedapkmn.addEventListener('keydown', (e)=>{
   if((e.keyCode < 48 || e.keyCode > 57) && (e.keyCode < 65 || e.keyCode > 90) && e.keyCode !==8 && e.keyCode !==37 && e.keyCode !== 39 && e.keyCode !== 46)
     e.preventDefault();
 })
-
+//buscar pokémon
 const keyUp=document.getElementById('busquedapkmn')
 keyUp.addEventListener('keyup', (e)=>{
   const inputBuscar=e.target.value.toLowerCase();  
-  listPkmn.forEach(pokemon =>{
+  const arrayBuscar= listPkmn.filter(pokemon =>{
     const coincidencia=pokemon.name.match(inputBuscar);
-    const containterPkm=document.querySelectorAll('.container');
     if (coincidencia!==null){
-      const divNamePkm=document.querySelectorAll('.container-name');
-      divNamePkm.forEach(nombre =>{
-        if (nombre.textContent.toLowerCase=== coincidencia.input){
-          containterPkm.classList.add('ocultar');
-        }
-      })
-      console.log(coincidencia.input);
-
-    
-    
+      return true;
     }
-  })
-  
-  //pintar(listPkmn);
-  //console.log(inputBuscar);
+  } )
+  pintar(arrayBuscar);
 })
