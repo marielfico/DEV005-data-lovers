@@ -76,12 +76,13 @@ export function filtrarCp(cp){
     return cpPkm.reverse()
   }
 }
+//BUSCAR PKM POR NUM
+export function buscar(id){
+  const idPokemon=dataPkmn.pokemon.filter(pkm=>{
+    if(pkm.num===id){
+      return true;
+    }
+  })
+  return idPokemon;
+}
 
-
-/* export const example = () => {
-  return 'example';
-};
-
-export const anotherExample = () => {
-  return 'OMG';
-}; */

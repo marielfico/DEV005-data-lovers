@@ -1,4 +1,4 @@
-import {listPkmn, filtrarRegion, filtrarOrden, filtrarTipo, filtrarRareza, filtrarCp} from './data.js';
+import {buscar, listPkmn, filtrarRegion, filtrarOrden, filtrarTipo, filtrarRareza, filtrarCp} from './data.js';
 //import pokemon from './data/pokemon/pokemon.js';
 //import dataPkmn from './data/pokemon/pokemon.js';
 
@@ -21,6 +21,7 @@ function pintar(datosAPintar){
     //LLENAR LISTADO
     const dataListClone = template.content.cloneNode(true);
     dataListClone.querySelector('.container-num').innerHTML =datosAPintar[i].num;
+    dataListClone.querySelector('.container').setAttribute('class', `container containter${[i]} ${datosAPintar[i].num}`);
     dataListClone.querySelector('.container-img').setAttribute("src", datosAPintar[i].img);
     dataListClone.querySelector('.container-name').innerHTML =datosAPintar[i].name.toUpperCase();
     if(datosAPintar[i].type.length>1){
@@ -122,6 +123,11 @@ btn.addEventListener('click', limpiar)
 function limpiar(){
   window.location.reload();
 }
+//CONTAINER DISPLAY
+document.addEventListener('click', (e)=>{
+  const idPkm=e.target.parentNode.classList[2];
+  console.log(buscar(idPkm)); 
+})
 //ABRIR VENTANA MODAL
 const containers = document.querySelectorAll('.container')
 const modal = document.getElementById('modal')
