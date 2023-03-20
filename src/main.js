@@ -1,12 +1,11 @@
 import {buscar, listPkmn, filtrarRegion, filtrarOrden, filtrarTipo, filtrarRareza, filtrarCp} from './data.js';
-//import pokemon from './data/pokemon/pokemon.js';
-//import dataPkmn from './data/pokemon/pokemon.js';
+import dataPkmn from './data/pokemon/pokemon.js';
+
+const arrPkmn = dataPkmn.pokemon;
 
 //LISTAR POKEMON
 const template = document.querySelector('.template1');
-/* const template2 = document.querySelector('.template2'); */
 const dataList = document.querySelector('.dataList');
-/* const dataModal = document.querySelector('.dataModal'); */
 function pintar(datosAPintar){
   dataList.innerHTML='';
   for (let i=0; i<datosAPintar.length; i++){
@@ -123,17 +122,23 @@ btn.addEventListener('click', limpiar)
 function limpiar(){
   window.location.reload();
 }
-//CONTAINER DISPLAY
-document.addEventListener('click', (e)=>{
-  const idPkm=e.target.parentNode.classList[2];
-  console.log(buscar(idPkm)); 
-})
 //ABRIR VENTANA MODAL
 const containers = document.querySelectorAll('.container')
 const modal = document.getElementById('modal')
 containers.forEach(container => {
-  container.addEventListener('click', () =>{
+  container.addEventListener('click', (e) =>{
+    const idPkm=e.target.parentNode.classList[2];
     modal.style.display = "block";
+    buscar(idPkm, arrPkmn);
+    const resultadoArr = buscar(idPkm, arrPkmn)
+    console.log(resultadoArr[0].name);
+    const modalName = document.querySelector('.modal-name');
+    modalName.innerHTML = resultadoArr[0].name;
+    const numName = document.querySelector('.modal-num');
+    numName.innerHTML = resultadoArr[0].num;
+    const imgName = document.querySelector('.modal-img');
+    imgName.setAttribute("src", resultadoArr[0].img);
+
   })
 })
 //CERRAR VENTANA MODAL
@@ -142,34 +147,3 @@ close.addEventListener('click',() =>{
   modal.style.display = "none";
 })
 
-
-
-
-/* //ABRIR VENTANA MODAL
-const containers = document.querySelectorAll('.container')
-const modal = document.getElementById('modal')
-containers.forEach(container => {
-  container.addEventListener('click', mostrarModal)
-})
-function mostrarModal(){
-  modal.style.display = "block";
-}
-//CERRAR VENTANA MODAL
-const close = document.querySelector('.close')
-close.addEventListener('click',cerrarModal)
-function cerrarModal(){
-  modal.style.display = "none";
-}
-//MOSTRAR VENTANA MODAL
-const modalName = document.querySelector('.modal-name')
-const modalImg = document.querySelector('.modal-img')
-const modalNum = document.querySelector('.modal-num')
-
-function llenarModal(datosALlenar){
-  for(let i=0; i<datosALlenar.length; i++){
-    modalName.innerHTML=listPkmn[i].name.toUpperCase();
-    modalImg.setAttribute("src", datosALlenar[i].img);
-    modalNum.innerHTML=listPkmn[i].num;
-  }
-}
-llenarModal(listPkmn) */
