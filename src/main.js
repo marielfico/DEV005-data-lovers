@@ -2,12 +2,23 @@ import {listPkmn, filtrarRegion, filtrarOrden, filtrarTipo, filtrarRareza, filtr
 //import pokemon from './data/pokemon/pokemon.js';
 //import dataPkmn from './data/pokemon/pokemon.js';
 
-//Pokemon - listado
-const template = document.querySelector('template');
+//LISTAR POKEMON
+const template = document.querySelector('.template1');
+/* const template2 = document.querySelector('.template2'); */
 const dataList = document.querySelector('.dataList');
+/* const dataModal = document.querySelector('.dataModal'); */
 function pintar(datosAPintar){
   dataList.innerHTML='';
   for (let i=0; i<datosAPintar.length; i++){
+    
+    /* //LLENAR VENTANA MODAL
+    const dataModalClone = template2.content.cloneNode(true);
+    dataModalClone.querySelector('.modal-name').innerHTML=datosAPintar[i].name.toUpperCase();
+    dataModalClone.querySelector('.modal-img').setAttribute("src", datosAPintar[i].img);
+    dataModalClone.querySelector('.modal-num').innerHTML=datosAPintar[i].num;
+    dataModal.appendChild(dataModalClone); */
+
+    //LLENAR LISTADO
     const dataListClone = template.content.cloneNode(true);
     dataListClone.querySelector('.container-num').innerHTML =datosAPintar[i].num;
     dataListClone.querySelector('.container-img').setAttribute("src", datosAPintar[i].img);
@@ -19,10 +30,11 @@ function pintar(datosAPintar){
       dataListClone.querySelector('.container-type1').setAttribute("class", datosAPintar[i].type[0]);
     }
     dataList.appendChild(dataListClone);
+
   } 
 }
 pintar(listPkmn);
-//n° pokedex
+//FILTRAR POR N°POKEDEX
 const selectPokedex = document.getElementById('selectPokedex')
 function changeOptionPokedex  ()  {
   const valor=selectPokedex.value;
@@ -34,7 +46,7 @@ function changeOptionPokedex  ()  {
   }
 }
 selectPokedex.addEventListener('change', changeOptionPokedex)
-//region
+//FILTRAR POR REGION
 const selectRegion = document.getElementById('selectRegion')
 const changeOptionRegion = () => {
   const optionRegion = selectRegion.options[selectRegion.selectedIndex].value;
@@ -110,3 +122,48 @@ btn.addEventListener('click', limpiar)
 function limpiar(){
   window.location.reload();
 }
+//ABRIR VENTANA MODAL
+const containers = document.querySelectorAll('.container')
+const modal = document.getElementById('modal')
+containers.forEach(container => {
+  container.addEventListener('click', () =>{
+    modal.style.display = "block";
+  })
+})
+//CERRAR VENTANA MODAL
+const close = document.querySelector('.close')
+close.addEventListener('click',() =>{
+  modal.style.display = "none";
+})
+
+
+
+
+/* //ABRIR VENTANA MODAL
+const containers = document.querySelectorAll('.container')
+const modal = document.getElementById('modal')
+containers.forEach(container => {
+  container.addEventListener('click', mostrarModal)
+})
+function mostrarModal(){
+  modal.style.display = "block";
+}
+//CERRAR VENTANA MODAL
+const close = document.querySelector('.close')
+close.addEventListener('click',cerrarModal)
+function cerrarModal(){
+  modal.style.display = "none";
+}
+//MOSTRAR VENTANA MODAL
+const modalName = document.querySelector('.modal-name')
+const modalImg = document.querySelector('.modal-img')
+const modalNum = document.querySelector('.modal-num')
+
+function llenarModal(datosALlenar){
+  for(let i=0; i<datosALlenar.length; i++){
+    modalName.innerHTML=listPkmn[i].name.toUpperCase();
+    modalImg.setAttribute("src", datosALlenar[i].img);
+    modalNum.innerHTML=listPkmn[i].num;
+  }
+}
+llenarModal(listPkmn) */
