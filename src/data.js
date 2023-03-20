@@ -77,8 +77,8 @@ export function filtrarCp(cp){
   }
 }
 //BUSCAR PKM POR NUM
-export function buscar(id){
-  const idPokemon=dataPkmn.pokemon.filter(pkm=>{
+export function buscar(id, arrPkmn){
+  const idPokemon=arrPkmn.filter(pkm=>{
     if(pkm.num===id){
       return true;
     }
