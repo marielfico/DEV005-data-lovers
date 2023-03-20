@@ -449,3 +449,28 @@ header .inicio:hover {
     width: 45%;
     margin-top: -9%;
 }
+#modal{
+    background-color: #00000036;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+.modal-content{
+    border: 5px solid yellow;
+    background-color: white;
+    margin: auto;
+    margin-top: 2%;
+    padding: 5%;
+    width: 60%;
+}
+.modal-name{
+    background-color: #8FD941;
+}
+.modal-img{
+    background-color: #b54af3;
+}
+.ocultar{
+    display: none;
+}
