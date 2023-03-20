@@ -1,4 +1,4 @@
-import {buscar, listPkmn, filtrarRegion, filtrarOrden, filtrarTipo, filtrarRareza, filtrarCp} from './data.js';
+import {buscar, filtrarRegion, filtrarOrden, filtrarTipo, filtrarRareza, filtrarCp} from './data.js';
 import dataPkmn from './data/pokemon/pokemon.js';
 
 const arrPkmn = dataPkmn.pokemon;
@@ -33,15 +33,15 @@ function pintar(datosAPintar){
 
   } 
 }
-pintar(listPkmn);
+pintar(arrPkmn);
 //FILTRAR POR N°POKEDEX
 const selectPokedex = document.getElementById('selectPokedex')
 function changeOptionPokedex  ()  {
   const valor=selectPokedex.value;
   if(valor===''){
-    pintar(listPkmn);
+    pintar(arrPkmn);
   }else{
-    const orden=filtrarOrden(valor);
+    const orden=filtrarOrden(valor, arrPkmn);
     pintar(orden)
   }
 }
@@ -51,13 +51,13 @@ const selectRegion = document.getElementById('selectRegion')
 const changeOptionRegion = () => {
   const optionRegion = selectRegion.options[selectRegion.selectedIndex].value;
   if(optionRegion === 'kanto'){
-    const dataKanto=filtrarRegion('kanto');
+    const dataKanto=filtrarRegion('kanto', arrPkmn);
     pintar(dataKanto)
   }else if(optionRegion === 'johto'){
-    const dataJohto=filtrarRegion('johto');
+    const dataJohto=filtrarRegion('johto', arrPkmn);
     pintar(dataJohto)
   }else if(optionRegion === ''){
-    pintar(listPkmn);
+    pintar(arrPkmn);
   }
 };
 selectRegion.addEventListener('change', changeOptionRegion)
@@ -66,9 +66,9 @@ const selectType=document.getElementById('selectType');
 const changeOptionType=()=>{
   const tipo=selectType.value;
   if(tipo===''){
-    pintar(listPkmn);
+    pintar(arrPkmn);
   }else {
-    const filterType=filtrarTipo(tipo);
+    const filterType=filtrarTipo(tipo, arrPkmn);
     pintar(filterType);
   }
 }
@@ -78,9 +78,9 @@ const selectRareza=document.getElementById('selectRareza');
 const changeOptionRareza=()=>{
   const rareza=selectRareza.value;
   if(rareza===''){
-    pintar(listPkmn);
+    pintar(arrPkmn);
   }else{
-    const filterRareza=filtrarRareza(rareza);
+    const filterRareza=filtrarRareza(rareza, arrPkmn);
     pintar(filterRareza);
   }
 }
@@ -90,9 +90,9 @@ const selectPC=document.getElementById('selectPC');
 const changeOptionCP=()=>{
   const cp=selectPC.value;
   if(cp===''){
-    pintar(listPkmn);
+    pintar(arrPkmn);
   }else{
-    const filterCP=filtrarCp(cp);
+    const filterCP=filtrarCp(cp, arrPkmn);
     pintar(filterCP);
   }
 }
@@ -108,7 +108,7 @@ busquedapkmn.addEventListener('keydown', (e)=>{
 const keyUp=document.getElementById('busquedapkmn')
 keyUp.addEventListener('keyup', (e)=>{
   const inputBuscar=e.target.value.toLowerCase();  
-  const arrayBuscar= listPkmn.filter(pokemon =>{
+  const arrayBuscar= arrPkmn.filter(pokemon =>{
     const coincidencia=pokemon.name.match(inputBuscar);
     if (coincidencia!==null){
       return true;
