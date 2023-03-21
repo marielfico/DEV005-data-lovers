@@ -9,14 +9,6 @@ const dataList = document.querySelector('.dataList');
 function pintar(datosAPintar){
   dataList.innerHTML='';
   for (let i=0; i<datosAPintar.length; i++){
-    
-    /* //LLENAR VENTANA MODAL
-    const dataModalClone = template2.content.cloneNode(true);
-    dataModalClone.querySelector('.modal-name').innerHTML=datosAPintar[i].name.toUpperCase();
-    dataModalClone.querySelector('.modal-img').setAttribute("src", datosAPintar[i].img);
-    dataModalClone.querySelector('.modal-num').innerHTML=datosAPintar[i].num;
-    dataModal.appendChild(dataModalClone); */
-
     //LLENAR LISTADO
     const dataListClone = template.content.cloneNode(true);
     dataListClone.querySelector('.container-num').innerHTML =datosAPintar[i].num;
@@ -30,8 +22,136 @@ function pintar(datosAPintar){
       dataListClone.querySelector('.container-type1').setAttribute("class", datosAPintar[i].type[0]);
     }
     dataList.appendChild(dataListClone);
-
   } 
+  //ABRIR VENTANA MODAL
+  const containers = document.querySelectorAll('.container')
+  const modal = document.getElementById('modal')
+  containers.forEach(container => {
+    container.addEventListener('click', (e) =>{
+      modal.style.display = "block";
+      const idPkm=e.target.parentNode.classList[2];
+      buscar(idPkm, arrPkmn);
+      const resultadoArr = buscar(idPkm, arrPkmn)
+      //console.log(resultadoArr[0].name);
+      //datos en modal-region
+      const modalRegion = document.querySelector('.modal-region');
+      const reg = resultadoArr[0].generation.name
+      if(reg === 'kanto'){
+        modalRegion.setAttribute('src', 'img/kanto.png');
+      }else{
+        modalRegion.setAttribute('src', 'img/johto.png');
+      }
+      //datos en modal-number
+      const modalNum = document.querySelector('.modal-num');
+      modalNum.innerHTML = `N° ${resultadoArr[0].num}`;
+      //datos en modal-name
+      const modalName = document.querySelector('.modal-name');
+      modalName.innerHTML = resultadoArr[0].name.toUpperCase();
+      //datos en modal-about
+      const modalAbout = document.querySelector('.modal-about');
+      modalAbout.innerHTML = resultadoArr[0].about;
+      //datos en modal-weight
+      const modalWeight = document.querySelector('.modal-weight');
+      modalWeight.innerHTML = `<strong>PESO:</strong> ${resultadoArr[0].size.weight}<br><strong>ALTURA:</strong> ${resultadoArr[0].size.height}`;
+      //datos en modal-encounter
+      const modalEncounter = document.querySelector('.modal-encounter');
+      modalEncounter.innerHTML = `<ul><strong>ENCUENTRO:</strong> 
+                                    <li>Vel. de huída: ${resultadoArr[0].encounter['base-flee-rate']}</li>
+                                    <li>Vel. de captura: ${resultadoArr[0].encounter['base-capture-rate']}</li>
+                                  </ul>`;
+      //datos en modal-spawn
+      const modalSpawn = document.querySelector('.modal-spawn');
+      modalSpawn.innerHTML = `<strong>PROB. APARICIÓN:</strong> ${resultadoArr[0]['spawn-chance']}`;
+      //datos en modal-table-atack
+      const modalTableAttack = document.querySelector('.modal-table-attack');
+      modalTableAttack.innerHTML =`
+      <tr>
+      <th>◓◓◓</th>
+      <th>MOV. RÁPIDO</th>
+      <th>ATAQ. ESPECIAL</th>
+      </tr>
+      <tr>
+      <td><strong>NOMBRE</strong></td>
+      <td>${resultadoArr[0]['quick-move'][0].name}</td>
+      <td>${resultadoArr[0]['special-attack'][0].name}</td>
+      </tr>
+      <tr>
+      <td><strong>TIPO</strong></td>
+      <td>${resultadoArr[0]['quick-move'][0].type}</td>
+      <td>${resultadoArr[0]['special-attack'][0].type}</td>
+      </tr>
+      <tr>
+      <td><strong>B.DAÑO</strong></td>
+      <td>${resultadoArr[0]['quick-move'][0]['base-damage']}</td>
+      <td>${resultadoArr[0]['special-attack'][0]['base-damage']}</td>
+      </tr>
+      <tr>
+      <td><strong>ENERGÍA</strong></td>
+      <td>${resultadoArr[0]['quick-move'][0].energy}</td>
+      <td>${resultadoArr[0]['special-attack'][0].energy}</td>
+      </tr>
+      <tr>
+      <td><strong>TIEMPO</strong></td>
+      <td>${resultadoArr[0]['quick-move'][0]['move-duration-seg']}</td>
+      <td>${resultadoArr[0]['special-attack'][0]['move-duration-seg']}</td>
+      </tr>
+      `
+      //datos en modal-rarity
+      const modalRarity = document.querySelector('.modal-rarity');
+      const rare = resultadoArr[0]['pokemon-rarity'];
+      if(rare === 'normal'){
+        modalRarity.setAttribute('src', 'img/pokebola_normal.gif');
+      }else if(rare === 'mythic'){
+        modalRarity.setAttribute('src', 'img/pokebola_mitico.gif');
+      }else{
+        modalRarity.setAttribute('src', 'img/pokebola_legendario.gif');
+      }
+      //datos en modal-preEvol-nextEvol
+      //const modalPreEv = document.querySelector('.modal-evL');
+      
+      //datos en modal-table-atack
+      const modalTableIcon = document.querySelector('.modal-table-icon');
+      modalTableIcon.innerHTML =`
+      <tr>
+      <th>RESISTENCIA</th>
+      <th>DEBILIDAD</th>
+      </tr>
+      <tr>
+      <td>aa</td>
+      <td>aa</td>
+      </tr>
+      <tr>
+      <td>aa</td>
+      <td>aa</td>
+      </tr>
+      <tr>
+      <td>aa</td>
+      <td>aa</td>
+      </tr>
+      <tr>
+      <td>aa</td>
+      <td>aa</td>
+      </tr>
+      <tr>
+      <td>aa</td>
+      <td>aa</td>
+      </tr>
+      `
+      //datos en modal-img
+      const imgName = document.querySelector('.modal-img');
+      imgName.setAttribute("src", resultadoArr[0].img);
+      //datos en modal-name2
+      const modalName2 = document.querySelector('.modal-name2');
+      modalName2.innerHTML = resultadoArr[0].name.toUpperCase();
+
+
+    })
+  })
+  //CERRAR VENTANA MODAL
+  const close = document.querySelector('.close')
+  close.addEventListener('click',() =>{
+    modal.style.display = "none";
+  })
 }
 pintar(arrPkmn);
 //FILTRAR POR N°POKEDEX
@@ -95,6 +215,7 @@ const changeOptionCP=()=>{
     const filterCP=filtrarCp(cp, arrPkmn);
     pintar(filterCP);
   }
+  
 }
 selectPC.addEventListener('change', changeOptionCP);
 //BUSCAR POKÉMON
@@ -122,28 +243,5 @@ btn.addEventListener('click', limpiar)
 function limpiar(){
   window.location.reload();
 }
-//ABRIR VENTANA MODAL
-const containers = document.querySelectorAll('.container')
-const modal = document.getElementById('modal')
-containers.forEach(container => {
-  container.addEventListener('click', (e) =>{
-    const idPkm=e.target.parentNode.classList[2];
-    modal.style.display = "block";
-    buscar(idPkm, arrPkmn);
-    const resultadoArr = buscar(idPkm, arrPkmn)
-    console.log(resultadoArr[0].name);
-    const modalName = document.querySelector('.modal-name');
-    modalName.innerHTML = resultadoArr[0].name;
-    const numName = document.querySelector('.modal-num');
-    numName.innerHTML = resultadoArr[0].num;
-    const imgName = document.querySelector('.modal-img');
-    imgName.setAttribute("src", resultadoArr[0].img);
 
-  })
-})
-//CERRAR VENTANA MODAL
-const close = document.querySelector('.close')
-close.addEventListener('click',() =>{
-  modal.style.display = "none";
-})
 

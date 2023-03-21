@@ -4,15 +4,15 @@
 export function top10(arrPkmn){
   const topPkmn = arrPkmn.map((x) => {
     return {
-      nameTop: x.name,
-      cpTop: x.stats['max-cp'],
-      imgTop: x.img
+      name: x.name,
+      cp: x.stats['max-cp'],
+      img: x.img
     } 
   });
   
   topPkmn.sort((a, b) => {
-    const cpA = a.cpTop;
-    const cpB = b.cpTop;
+    const cpA = a.cp;
+    const cpB = b.cp;
     return cpB - cpA;
   });
   const topPkmnSlice = topPkmn.slice(0, 10);
@@ -73,4 +73,5 @@ export function buscar(id, arrPkmn){
   })
   return idPokemon;
 }
+
 
