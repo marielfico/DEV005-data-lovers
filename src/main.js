@@ -138,11 +138,72 @@ function pintar(datosAPintar){
       </tr>
       `
       //datos en modal-img
-      const imgName = document.querySelector('.modal-img');
-      imgName.setAttribute("src", resultadoArr[0].img);
+      const modalImg = document.querySelector('.modal-img');
+      modalImg.setAttribute("src", resultadoArr[0].img);
       //datos en modal-name2
       const modalName2 = document.querySelector('.modal-name2');
       modalName2.innerHTML = resultadoArr[0].name.toUpperCase();
+      //datos en modal-tipos
+      const modalType = document.querySelector('.modal-type');
+      const typ = resultadoArr[0].type;
+      if(typ.length === 2){
+        modalType.innerHTML=''
+        const newType1 = document.createElement('span');
+        const newType2 = document.createElement('span');
+        newType1.setAttribute('class', `${typ[0]}`);
+        newType2.setAttribute('class', `${typ[1]}`);
+        modalType.appendChild(newType1);
+        modalType.appendChild(newType2);
+      }else if(typ.length === 1){
+        modalType.innerHTML=''
+        const newType = document.createElement('span');
+        newType.setAttribute('class', `${typ[0]}`);
+        modalType.appendChild(newType);
+      }
+      //datos en modal-huevo
+      const modalCandy = document.querySelector('.modal-candy')
+      modalCandy.innerHTML = `<img src="img/candy.PNG" alt="caramelo del juego Pokemon GO">`;
+      //datos en modal-huevo
+      const modalEgg = document.querySelector('.modal-egg');
+      const eggg = resultadoArr[0].egg;
+      if(eggg === 'not in eggs'){
+        modalEgg.innerHTML = `<img src="img/egg.png" alt="huevo pokemon"> No`;
+      }else{
+        modalEgg.innerHTML = `<img src="img/egg.png" alt="huevo pokemon"> ${eggg}`;
+      }
+      //datos en modal-table-power
+      const modalTablePower = document.querySelector('.modal-table-power');
+      const att = resultadoArr[0].stats;
+      modalTablePower.innerHTML = `  
+      <tr>
+      <th colspan="3">POWER</th>
+      </tr>
+      <tr>
+      <td><label class="label-at" for="atck">Ataque</label></td>
+      <td><progress id="atck" max="400" value="${att["base-attack"]}"></progress></td>
+      <td class="td-at">${att["base-attack"]}</td>
+      </tr>
+      <tr>
+      <td><label class="label-def" for="atck">Defensa</label></td>
+      <td><progress id="def" max="400" value="${att["base-defense"]}"></progress></td>
+      <td class="td-at">${att["base-defense"]}</td>
+      </tr>
+      <tr>
+      <td><label class="label-stam" for="atck">Resistencia</label></td>
+      <td><progress id="stam" max="500" value="${att["base-stamina"]}"></progress></td>
+      <td class="td-at">${att["base-stamina"]}</td>
+      </tr>
+      <tr>
+      <td><label class="label-max" for="atck">Max PC</label></td>
+      <td><progress id="max" max="4200" value="${att["max-cp"]}"></progress></td>
+      <td class="td-at">${att["max-cp"]}</td>
+      </tr>
+      <tr>
+      <td><label class="label-hp" for="atck">Max HP</label></td>
+      <td><progress id="hp" max="410" value="${att["max-hp"]}"></progress></td>
+      <td class="td-at">${att["max-hp"]}</td>
+      </tr>
+      `
 
 
     })
