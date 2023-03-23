@@ -202,7 +202,6 @@ header .inicio:hover {
     margin: 3%;
     height: 19%;
 }
-/* modifi */
 .filter-containerChild {
     display: inline-block;
     width: 90%;
@@ -233,7 +232,6 @@ header .inicio:hover {
 .filter-select:hover{
     background-color: #bad2ed;
 }
-/* modifiq */
 .main-pokedex .listado{
     width: 80%; 
     display: block;
@@ -488,8 +486,8 @@ header .inicio:hover {
     display: block;
     font-weight: bold;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, Helvetica, sans-serif, Geneva, Tahoma, sans-serif, Haettenschweiler, 'Arial Narrow Bold', sans-serif, 'Times New Roman', Times, serif, 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, 'Arial Narrow', Arial, sans-serif, 'Arial Narrow', Arial, sans-serif;
-    font-size: 3.1vh;
-    margin-top: 5%;
+    font-size: 2.8vh;
+    margin-top: 4%;
 }
 .modal-info{
     font-family: Arial, Helvetica, sans-serif, Times, serif, Haettenschweiler, 'Arial Narrow Bold', sans-serif, Geneva, Tahoma, sans-serif, 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, 'Arial Narrow', Arial, sans-serif;
@@ -544,6 +542,7 @@ header .inicio:hover {
     width: 80%;
 }
 .modal-rigth-top{
+    /* border: 3px solid #e625ac; */
     display: inline-block;
     width: 100%;
     display: flex;
@@ -564,34 +563,37 @@ header .inicio:hover {
     cursor: pointer;
 }
 .modal-rigth-center{
-    border: 3px solid #e625ac;
-    display: inline-block;
+    /* border: 3px solid #e625ac; */
     width: 100%;
     height: 25%;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30%;
 }
 .modal-evL{
-    border: 3px solid #6176ff;
-    width: 50%;
+    width: 20%;
 }
 .modal-evR{
-    border: 3px solid #61c2ff;
-    width: 50%;
+    width: 20%;
+    margin-left: 5%;
 }
 .modal-rigth-bottom{
-    border: 3px solid #e625ac;
+    /* border: 3px solid #e625ac; */
     display: flex;
     height: 59%;
 }
 .modal-rb-L{
     border: 3px solid #000000;
     display: block;
-    width: 24%;
+    width: 27%;
     padding-left: 7%;
-    padding-top: 5%;
+    padding-top: 2.5%;
 }
 .modal-name-evL{
-    border: 3px solid #6f1bc9;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width: 70%;
+    float: right;
 }
 .modal-table-icon{
     background-color: #00000022;
@@ -611,18 +613,23 @@ header .inicio:hover {
     display: block;
     width: 38%;
     height: 100%;
+    /* border: 3px solid #855bb1; */
 }
 .modal-img{
     height: 60%;
     margin-top: 12%;
     max-width: 95%;
+    /* border: 3px solid #855bb1; */
 }
 .modal-name2{
+    /* border: 3px solid #855bb1; */
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, Helvetica, sans-serif, Geneva, Tahoma, sans-serif, Haettenschweiler, 'Arial Narrow Bold', sans-serif, 'Times New Roman', Times, serif, 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, 'Arial Narrow', Arial, sans-serif, 'Arial Narrow', Arial, sans-serif;
-    font-size: 3.1vh;
+    font-size: 2.3vh;
     display: block;
     text-align: center;
     max-width: 85%;
+    margin-top: 5%;
+
 }
 .modal-type{
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -630,33 +637,46 @@ header .inicio:hover {
     width: 85%;
     display: block;
 }
-.modal-candy img{
-    width: 15%;
-    margin-left: 13%;
-    filter: drop-shadow(1px 2px 2px rgb(0, 0, 0));
-    margin-top: 2%;
-}
 .modal-egg{
-    margin-left: 10%;
+    margin: auto;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin-top: 3%;
+    margin-right: 7%;
+    text-align: center;
+    display: inline-block;
 }
 .modal-egg img{
-    width: 11%;
+    width: 8%;
     filter: drop-shadow(1px 2px 2px rgb(0, 0, 0));
 }
 .modal-rb-R{
     width: 35%;
     display: block;
+    /* border: 3px solid #704c77; */
 }
 .modal-name-evR{
-    border: 3px solid #756378;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: block;
+    margin-top: 10%;
+    margin-left: 5%;
+}
+.modal-candy{
+   /*  border: 3px solid #756378; */
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: smaller;
+    margin-left: 5%;
+}
+.modal-candy img{
+    width: 10%;
+    filter: drop-shadow(1px 2px 2px rgb(0, 0, 0));
+    margin-top: 2%;
+    
 }
 .modal-table-power{
     background:  rgba(167, 163, 163, 0.38);
     border-radius: 15px;
     padding: 3%;
-    margin-top: 20%;
+    margin-top: 15%;
 }
 .modal-table-power th{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, Cochin, Georgia, Times, 'Times New Roman', serif, Geneva, Tahoma, sans-serif, 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, 'Arial Narrow', Arial, sans-serif;

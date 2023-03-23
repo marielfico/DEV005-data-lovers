@@ -106,10 +106,59 @@ function pintar(datosAPintar){
       }else{
         modalRarity.setAttribute('src', 'img/pokebola_legendario.gif');
       }
-      //datos en modal-preEvol-nextEvol
-      //const modalPreEv = document.querySelector('.modal-evL');
-      
-      //datos en modal-table-atack
+      //PRE EVOLUCIÓN Y EVOLUCIÓN
+      //OBTENER EL NÚMERO DE LA PREV Y NETX EVOLUTION
+      const datosPkm=resultadoArr[0].evolution;
+      let numPrevEv=0;
+      let numNextEv=0;
+      Object.entries(datosPkm).forEach(entry =>{
+        const [key, value]=entry;
+        //console.log({key});
+        if(key==='next-evolution'){
+          const nextEv=value[0];
+          Object.entries(nextEv).forEach(entry =>{
+            const[key, value]=entry;
+            if (key==='num'){
+              numNextEv=value;
+              //console.log(numNextEv);
+            }
+          })
+          //console.log('TIENE EVOLUCION', nextEv)
+        }else if(key==='prev-evolution'){
+          const nextPre=value[0];
+          Object.entries(nextPre).forEach(entry =>{
+            const[key, value]=entry;
+            if (key==='num'){
+              numPrevEv=value;
+              //console.log(numPrevEv);
+            }
+          })
+          //console.log('TIENE PRE EVOLUCION', nextPre)
+        }
+      })
+      //OBTENER LA INFO DEL POKÉMON DE NEX Y PREV EVOLUTION
+      const modalPreEv = document.querySelector('.modal-evL');
+      const modalNextEv = document.querySelector('.modal-evR');
+      modalPreEv.setAttribute('src','');
+      modalNextEv.setAttribute('src','');
+      if(numPrevEv!==0){
+        const pkmPrevEv=buscar(numPrevEv, arrPkmn);
+        modalPreEv.setAttribute('src', pkmPrevEv[0].img);
+      }
+      if (numNextEv!==0){
+        const pkmNextEv=buscar(numNextEv, arrPkmn);
+        modalNextEv.setAttribute('src', pkmNextEv[0].img);      
+      }
+      // datos en modal-name izquierdo
+      const nameEvL = document.querySelector('.modal-name-evL');
+      if('prev-evolution' in resultadoArr[0].evolution){
+        nameEvL.innerHTML = resultadoArr[0].evolution['prev-evolution'][0].name.toUpperCase();
+        nameEvL.setAttribute('style', 'font-size:.7em')
+      }else{
+        nameEvL.innerHTML ='No tiene pre-evolución'
+        nameEvL.setAttribute('style', 'font-size:.6em')
+      }
+      //datos en modal-table-resistencia y debilidad
       const modalTableIcon = document.querySelector('.modal-table-icon');
       modalTableIcon.innerHTML =`
       <tr>
@@ -161,9 +210,6 @@ function pintar(datosAPintar){
         modalType.appendChild(newType);
       }
       //datos en modal-huevo
-      const modalCandy = document.querySelector('.modal-candy')
-      modalCandy.innerHTML = `<img src="img/candy.PNG" alt="caramelo del juego Pokemon GO">`;
-      //datos en modal-huevo
       const modalEgg = document.querySelector('.modal-egg');
       const eggg = resultadoArr[0].egg;
       if(eggg === 'not in eggs'){
@@ -171,6 +217,23 @@ function pintar(datosAPintar){
       }else{
         modalEgg.innerHTML = `<img src="img/egg.png" alt="huevo pokemon"> ${eggg}`;
       }
+      //datos de nombre de next-evolution
+      const nameEvR = document.querySelector('.modal-name-evR');
+      if('next-evolution' in resultadoArr[0].evolution){
+        nameEvR.innerHTML = resultadoArr[0].evolution["next-evolution"][0].name.toUpperCase();
+        nameEvR.setAttribute('style', 'font-size:.7em');
+      }else{
+        nameEvR.innerHTML ='No tiene evolución';
+        nameEvR.setAttribute('style', 'font-size:.6em');
+      }
+      //datos en modal-candy
+      const modalCandy = document.querySelector('.modal-candy');
+      if('next-evolution' in resultadoArr[0].evolution){
+        modalCandy.innerHTML = `<img src="img/candy.PNG" alt="caramelo del juego Pokemon GO"> ${resultadoArr[0].evolution["next-evolution"][0]['candy-cost']}`;
+      }else{
+        modalCandy.innerHTML =`<img src="img/candy.PNG" alt="caramelo del juego Pokemon GO"> No`; 
+      } 
+      
       //datos en modal-table-power
       const modalTablePower = document.querySelector('.modal-table-power');
       const att = resultadoArr[0].stats;
