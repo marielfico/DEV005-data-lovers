@@ -120,6 +120,12 @@ function pintar(datosAPintar){
             const[key, value]=entry;
             if (key==='num'){
               numNextEv=value;
+              console.log(numNextEv);
+              if(+numNextEv>297){
+                
+                numNextEv=0;
+                console.log(numNextEv);
+              }
               //console.log(numNextEv);
             }
           })
@@ -130,6 +136,11 @@ function pintar(datosAPintar){
             const[key, value]=entry;
             if (key==='num'){
               numPrevEv=value;
+              if(+numPrevEv>297){
+                
+                numPrevEv=0;
+                
+              }
               //console.log(numPrevEv);
             }
           })
@@ -139,53 +150,62 @@ function pintar(datosAPintar){
       //OBTENER LA INFO DEL POKÉMON DE NEX Y PREV EVOLUTION
       const modalPreEv = document.querySelector('.modal-evL');
       const modalNextEv = document.querySelector('.modal-evR');
+      const nameEvL = document.querySelector('.modal-name-evL');
+      const nameEvR = document.querySelector('.modal-name-evR');
+      const modalCandy = document.querySelector('.modal-candy');
+      nameEvL.innerHTML ='No tiene pre-evolución'
+      nameEvL.setAttribute('style', 'font-size:.6em')
+      nameEvR.innerHTML ='No tiene evolución';
+      nameEvR.setAttribute('style', 'font-size:.6em');
+      modalCandy.innerHTML =`<img src="img/candy.PNG" alt="caramelo del juego Pokemon GO"> No`;
       modalPreEv.setAttribute('src','');
       modalNextEv.setAttribute('src','');
       if(numPrevEv!==0){
         const pkmPrevEv=buscar(numPrevEv, arrPkmn);
         modalPreEv.setAttribute('src', pkmPrevEv[0].img);
+        // datos en modal-name izquierdo
+        if('prev-evolution' in resultadoArr[0].evolution){
+          nameEvL.innerHTML = resultadoArr[0].evolution['prev-evolution'][0].name.toUpperCase();
+          nameEvL.setAttribute('style', 'font-size:.7em')
+        }
       }
       if (numNextEv!==0){
         const pkmNextEv=buscar(numNextEv, arrPkmn);
-        modalNextEv.setAttribute('src', pkmNextEv[0].img);      
+        modalNextEv.setAttribute('src', pkmNextEv[0].img);
+        //datos de nombre de next-evolution
+        if('next-evolution' in resultadoArr[0].evolution){
+          nameEvR.innerHTML = resultadoArr[0].evolution["next-evolution"][0].name.toUpperCase();
+          nameEvR.setAttribute('style', 'font-size:.7em');
+        }    
+        //datos en modal-candy
+        if('next-evolution' in resultadoArr[0].evolution){
+          modalCandy.innerHTML = `<img src="img/candy.PNG" alt="caramelo del juego Pokemon GO"> ${resultadoArr[0].evolution["next-evolution"][0]['candy-cost']}`;
+        } 
       }
-      // datos en modal-name izquierdo
-      const nameEvL = document.querySelector('.modal-name-evL');
-      if('prev-evolution' in resultadoArr[0].evolution){
-        nameEvL.innerHTML = resultadoArr[0].evolution['prev-evolution'][0].name.toUpperCase();
-        nameEvL.setAttribute('style', 'font-size:.7em')
-      }else{
-        nameEvL.innerHTML ='No tiene pre-evolución'
-        nameEvL.setAttribute('style', 'font-size:.6em')
+
+      //DATOS DE LA TABLA RESISTENCIA Y DEBILIDAD
+      const modalIconRes=document.querySelector('.modal-icon-res');
+      const modalIconDeb=document.querySelector('.modal-icon-deb');
+      const titleRes=document.createElement('ul');
+      const titleDeb=document.createElement('ul');
+      titleRes.textContent='RESISTENCIA';
+      titleDeb.textContent='DEBILIDAD';
+      modalIconRes.appendChild(titleRes);
+      modalIconDeb.appendChild(titleDeb);
+      const resis=resultadoArr[0].resistant;
+      const deb=resultadoArr[0].weaknesses;
+      for(let i=0; i<resis.length; i++){
+        const li=document.createElement('li');
+        li.innerHTML=`<img src="img/${resis[i]}_icon.png">
+                      <span> ${resis[i].toUpperCase()}</span>`;
+        titleRes.appendChild(li);
       }
-      //datos en modal-table-resistencia y debilidad
-      const modalTableIcon = document.querySelector('.modal-table-icon');
-      modalTableIcon.innerHTML =`
-      <tr>
-      <th>RESISTENCIA</th>
-      <th>DEBILIDAD</th>
-      </tr>
-      <tr>
-      <td>aa</td>
-      <td>aa</td>
-      </tr>
-      <tr>
-      <td>aa</td>
-      <td>aa</td>
-      </tr>
-      <tr>
-      <td>aa</td>
-      <td>aa</td>
-      </tr>
-      <tr>
-      <td>aa</td>
-      <td>aa</td>
-      </tr>
-      <tr>
-      <td>aa</td>
-      <td>aa</td>
-      </tr>
-      `
+      for(let i=0; i<deb.length; i++){
+        const li=document.createElement('li');
+        li.innerHTML=`<img src="img/${deb[i]}_icon.png">
+                      <span> ${deb[i].toUpperCase()}</span>`;
+        titleDeb.appendChild(li);
+      }
       //datos en modal-img
       const modalImg = document.querySelector('.modal-img');
       modalImg.setAttribute("src", resultadoArr[0].img);
@@ -217,22 +237,8 @@ function pintar(datosAPintar){
       }else{
         modalEgg.innerHTML = `<img src="img/egg.png" alt="huevo pokemon"> ${eggg}`;
       }
-      //datos de nombre de next-evolution
-      const nameEvR = document.querySelector('.modal-name-evR');
-      if('next-evolution' in resultadoArr[0].evolution){
-        nameEvR.innerHTML = resultadoArr[0].evolution["next-evolution"][0].name.toUpperCase();
-        nameEvR.setAttribute('style', 'font-size:.7em');
-      }else{
-        nameEvR.innerHTML ='No tiene evolución';
-        nameEvR.setAttribute('style', 'font-size:.6em');
-      }
-      //datos en modal-candy
-      const modalCandy = document.querySelector('.modal-candy');
-      if('next-evolution' in resultadoArr[0].evolution){
-        modalCandy.innerHTML = `<img src="img/candy.PNG" alt="caramelo del juego Pokemon GO"> ${resultadoArr[0].evolution["next-evolution"][0]['candy-cost']}`;
-      }else{
-        modalCandy.innerHTML =`<img src="img/candy.PNG" alt="caramelo del juego Pokemon GO"> No`; 
-      } 
+      
+      
       
       //datos en modal-table-power
       const modalTablePower = document.querySelector('.modal-table-power');

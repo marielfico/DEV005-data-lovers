@@ -595,8 +595,8 @@ header .inicio:hover {
     width: 70%;
     float: right;
 }
-.modal-table-icon{
-    background-color: #00000022;
+.modal-icon{
+    background-color: #c4131322;
     border-radius: 10px;
     text-align: center;
     width: 20%;
@@ -604,11 +604,11 @@ header .inicio:hover {
     font-size: 1.5vh;
     padding: 2%;
 }
-.modal-table-icon td{
+/* .modal-table-icon td{
     font-family: monospace, Cochin, Georgia, Times, 'Times New Roman', serif, Tahoma, Geneva, Verdana, sans-serif, 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, Cochin, Georgia, Times, 'Times New Roman', serif, 'Times New Roman', Times, serif, Haettenschweiler, 'Arial Narrow Bold', sans-serif, Times, serif, 'Arial Narrow', Arial, sans-serif;
     font-size: 1.5vh;
     background-color: #0000000f;
-}
+} */
 .modal-rb-C{
     display: block;
     width: 38%;
