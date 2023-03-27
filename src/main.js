@@ -30,7 +30,7 @@ function pintar(datosAPintar){
     container.addEventListener('click', (e) =>{
       modal.style.display = "block";
       const idPkm=e.target.parentNode.classList[2];
-      buscar(idPkm, arrPkmn);
+      //buscar(idPkm, arrPkmn);
       const resultadoArr = buscar(idPkm, arrPkmn)
       //console.log(resultadoArr[0].name);
       //datos en modal-region
@@ -120,11 +120,8 @@ function pintar(datosAPintar){
             const[key, value]=entry;
             if (key==='num'){
               numNextEv=value;
-              console.log(numNextEv);
               if(+numNextEv>297){
-                
                 numNextEv=0;
-                console.log(numNextEv);
               }
               //console.log(numNextEv);
             }
@@ -186,6 +183,8 @@ function pintar(datosAPintar){
       //DATOS DE LA TABLA RESISTENCIA Y DEBILIDAD
       const modalIconRes=document.querySelector('.modal-icon-res');
       const modalIconDeb=document.querySelector('.modal-icon-deb');
+      modalIconDeb.innerHTML='';
+      modalIconRes.innerHTML='';
       const titleRes=document.createElement('ul');
       const titleDeb=document.createElement('ul');
       titleRes.textContent='RESISTENCIA';
@@ -237,9 +236,6 @@ function pintar(datosAPintar){
       }else{
         modalEgg.innerHTML = `<img src="img/egg.png" alt="huevo pokemon"> ${eggg}`;
       }
-      
-      
-      
       //datos en modal-table-power
       const modalTablePower = document.querySelector('.modal-table-power');
       const att = resultadoArr[0].stats;
