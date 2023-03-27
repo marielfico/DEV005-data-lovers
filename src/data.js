@@ -6,7 +6,8 @@ export function top10(arrPkmn){
     return {
       name: x.name,
       cp: x.stats['max-cp'],
-      img: x.img
+      img: x.img,
+      num:x.num
     } 
   });
   
