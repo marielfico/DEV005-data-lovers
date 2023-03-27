@@ -2,21 +2,12 @@
 
 //Pokemon en Top 10
 export function top10(arrPkmn){
-  const topPkmn = arrPkmn.map((x) => {
-    return {
-      name: x.name,
-      cp: x.stats['max-cp'],
-      img: x.img,
-      num:x.num
-    } 
-  });
-  
-  topPkmn.sort((a, b) => {
-    const cpA = a.cp;
-    const cpB = b.cp;
+  const arrPkmnTop = arrPkmn.sort((a, b) => {
+    const cpA = a.stats['max-cp'];
+    const cpB = b.stats['max-cp'];
     return cpB - cpA;
   });
-  const topPkmnSlice = topPkmn.slice(0, 10);
+  const topPkmnSlice = arrPkmnTop.slice(0, 10);
   return topPkmnSlice;
 }
 
