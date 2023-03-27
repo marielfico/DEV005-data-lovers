@@ -1,4 +1,4 @@
-![Bienvenidos](https://user-images.githubusercontent.com/IndiraPe/DEV005-data-lovers/main/src/img/tittlepkmn.png)
+![Bienvenidos](/src/img/tittlepkmn.png)
 
 ## Índice
 
