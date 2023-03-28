@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body class="fondoPokedex">
-    <header><img src="img/tittlepkmn.png" alt="PokeFanGO y un pikachu saltando"><a class="inicio" href="index.html" >INICIO</a></header>
+    <header><img src="img/tittlepkmn.png" alt="PokeFanGO y un pikachu saltando"><button id="btnE">ESTADÍSTICA</button><a class="inicio" href="index.html" >INICIO</a></header>
     <main class="main-pokedex">
       <section class="filter">
         <div class="filter-container">
@@ -149,6 +149,10 @@
             </div>
           </div>
       </section>
+      <section id="canvas">
+        <canvas id="myChart" style="width:50%;max-width:700px"></canvas>
+        <button class="close2">x</button>
+      </section>
     </main>
 
     <footer>¿Necesitas ayuda? . . . Contáctanos <img src="img/logoGitHub.png" alt="Logo de GitHub, que es un gato" width="15"><a href="https://github.com/marielfico" target="_blank">marielfico</a> y <img src="img/logoGitHub.png" alt="Logo de GitHub, que es un gato" width="15"><a href="https://github.com/IndiraPe" target="_blank">IndiraPe</a></footer>
@@ -156,5 +160,6 @@
     <div id="root"></div>
 
     <script src="main.js" type="module"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js" type="text/javascript"></script>
   </body>
 </html>

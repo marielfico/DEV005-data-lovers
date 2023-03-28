@@ -369,5 +369,63 @@ btn.addEventListener('click', limpiar)
 function limpiar(){
   window.location.reload();
 }
+//boton estadística
+const btnE = document.getElementById('btnE');
+const canvas = document.getElementById('canvas')
+btnE.addEventListener('click', mostrar)
+function mostrar(){
+  canvas.style.display = 'block'
+}
+const close2 = document.querySelector('.close2')
+close2.addEventListener('click',() =>{
+  canvas.style.display = 'none';
+})
 
+//Estadísticas
+const xValues = ['bug', 'dark', 'dragon', 'electric', 'fairy', 'fighting', 'fire', 'flying', 'ghost', 'grass', 'ground', 'ice', 'normal', 'poison', 'psychic', 'rock', 'steel', 'water'];
+const yValues = []
+for(let i = 0; i<xValues.length; i++){
+  const aaa = arrPkmn.filter(pkmn => 
+    pkmn.type[0]===xValues[i] || pkmn.type[1]===xValues[i]
+  )
+  const x = aaa.length
+  yValues.push(x)
+}
+const barColors = [
+  "#8FD941",
+  "#5B6074",
+  "#327ECB",
+  "#FAD61F",
+  "#F9B1E5",
+  "#DE5466",
+  "#F78B28",
+  "#768cd0",
+  "#A28CE2",
+  "#38BD6E",
+  "#D3C893",
+  "#95FAFA",
+  "#C0C0BA",
+  "#F872E2",
+  "#FF8B7A",
+  "#C9B758",
+  "#2C9399",
+  "#4AB6F3"
+];
+
+new Chart(document.getElementById('myChart'), { // eslint-disable-line
+  type: "doughnut",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "ESTADÍSTICAS DE POKÉMON POR TIPO"
+    }
+  }
+});
 
