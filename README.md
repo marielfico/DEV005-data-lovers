@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="460" height="150" src="/src/img/tittlepkmn.png">
+  <img width="460" height="140" src="/src/img/tittlepkmn.png">
 </p>
 
 ## Índice
@@ -28,9 +28,24 @@ Pokémon GO es una experiencia de juego internacional que cuenta con más de mil
 
 ## 2. PokeFanGO
 
-dsfsdfsdfsfd
-kdfndslkfnskdfnd
+PokeFanGO!! nació para todos los fans del popular juego PokémonGO, puede ser para jugadores experimentados y también para novatos.
+
+Para este proyecto, comenzamos por preguntar a varios jugadores pokémon sobre que esperaban encontrar, que información era útil o cómo realizaban sus búsquedas.
+
+De estas preguntas, concluímos que deseaban un Top, una lista completa de todos los pokemon, poder buscarlos por tipo, región, rareza, fuerza y por sus nombres; también, querían conocer en detalle a los pokemon (ataques, evoluciones, caramelos, tipos, rangos de fuerza y lore).
+
+Por lo que construímos 3 historias de usuario, con sus respectivos criterios de aceptación y definición de terminado.
+Se espera que esta página pueda ayudarlos a conocer los pokémon para sacarle el mayor provecho al juego, y también pueda orientar a los jugadores novatos que apenas conocen a sus pokémon.
+
+El diseño visual fue inspirado de la página oficial de [PokémonGO](https://pokemongolive.com/) ,usamos tonos oscuros de azul y tonos claros de verde para el contraste, también se usó el mismo fondo para la pokedex y para acentuar algunos toques de color, usamos el tono amarillo de Pikachu.
+Varios elementos en este proyecto fueron diseñados en Photoshop, como el título del proyecto, fondo del modal, botón de pokebola, etc.
+La página es responsive para PC, tablet y celular.
+
 ![Vistas Responsive](/src/img/visual.jpg)
+
+También se agregó de manera adicional, un cuadro de estadísticas por tipo de pokemon, para que los usuarios puedan conocer que tipos de pokémon son más abundantes en el universo del juego.
+
+Fue testeado al 100% de sus líneas, y probado con usuarios, para saber si habían errores o bug por corregir.
 
 ## 3. Historias de usuarios
 
@@ -41,6 +56,7 @@ kdfndslkfnskdfnd
 ## 4. Prototipos de diseño
 
 Prototipo de baja fidelidad: 
+![prototipo](/src/img/prototipo.jpg)
 
 Prototipo de alta fidelidad: https://scene.zeplin.io/project/6421b04ed5549922e109d3e6 
 
@@ -260,21 +276,21 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
 
 ## 7. Checklist
 
-* [ ] Usa VanillaJS.
-* [ ] Pasa linter (`npm run pretest`)
-* [ ] Pasa tests (`npm test`)
-* [ ] Pruebas unitarias cubren un mínimo del 70% de statements, functions y
+* [x] Usa VanillaJS.
+* [x] Pasa linter (`npm run pretest`)
+* [x] Pasa tests (`npm test`)
+* [x] Pruebas unitarias cubren un mínimo del 70% de statements, functions y
   lines y branches.
 * [ ] Incluye _Definición del producto_ clara e informativa en `README.md`.
-* [ ] Incluye historias de usuario en `README.md`.
+* [x] Incluye historias de usuario en `README.md`.
 * [ ] Incluye _sketch_ de la solución (prototipo de baja fidelidad) en
   `README.md`.
-* [ ] Incluye _Diseño de la Interfaz de Usuario_ (prototipo de alta fidelidad)
+* [x] Incluye _Diseño de la Interfaz de Usuario_ (prototipo de alta fidelidad)
   en `README.md`.
-* [ ] Incluye link a Zeplin en `README.md`.
-* [ ] Incluye el listado de problemas que detectaste a través de tests de
+* [x] Incluye link a Zeplin en `README.md`.
+* [x] Incluye el listado de problemas que detectaste a través de tests de
   usabilidad en el `README.md`.
-* [ ] UI: Muestra lista y/o tabla con datos y/o indicadores.
-* [ ] UI: Permite ordenar data por uno o más campos (asc y desc).
-* [ ] UI: Permite filtrar data en base a una condición.
-* [ ] UI: Es _responsive_.
+* [x] UI: Muestra lista y/o tabla con datos y/o indicadores.
+* [x] UI: Permite ordenar data por uno o más campos (asc y desc).
+* [x] UI: Permite filtrar data en base a una condición.
+* [x] UI: Es _responsive_.
