@@ -72,9 +72,9 @@ main .table-top{
     background-color: rgba(30, 53, 79, 0.82);
     text-align: center;
     width: 20%;
-    height: 60%;
+    height:fit-content;
     padding-top: 1.5%;
-    padding-bottom: .5%;
+    padding-bottom: 2%;
     margin-left: 70%;
     margin-top: 10%;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.5);
@@ -695,6 +695,7 @@ progress[value]::-webkit-progress-value{
     margin-left: 76%;
     font-weight: bold;
     border-style: none;
+    cursor: pointer;
 }
 #btnE{
     font-family:sans-serif, Geneva, Tahoma, sans-serif, Haettenschweiler, 'Arial Narrow Bold', sans-serif, 'Times New Roman', Times, serif, Cochin, Georgia, Times, 'Times New Roman', serif, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, Times, serif, Tahoma, Geneva, Verdana, sans-serif, 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, 'Arial Narrow', Arial, sans-serif, Courier, monospace ;
