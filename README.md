@@ -1,4 +1,6 @@
-![Bienvenidos](/src/img/tittlepkmn.png)
+<p align="center">
+  <img width="460" height="300" src="/src/img/tittlepkmn.png">
+</p>
 
 ## Índice
 
@@ -22,9 +24,7 @@ Pokémon GO es una experiencia de juego internacional que cuenta con más de mil
 * Competir en épicos combates contra otros entrenadores.
 * Hacer equipo con otros entrenadores para atrapar poderosos Pokémon durante las incursiones.
 
-<p align="center">
-  <img width="460" height="300" src="/src/img/imgMe.png">
-</p>
+![Bienvenidos](/src/img/imgMe.png)
 
 ## 2. PokeFanGO
 
