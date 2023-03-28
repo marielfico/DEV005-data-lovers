@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="460" height="300" src="/src/img/tittlepkmn.png">
+  <img width="460" height="150" src="/src/img/tittlepkmn.png">
 </p>
 
 ## Índice
