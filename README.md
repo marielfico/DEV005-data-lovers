@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="460" height="140" src="/src/img/tittlepkmn.png">
+  <img width="460" height="120" src="/src/img/tittlepkmn.png">
 </p>
 
 ## Índice
@@ -45,7 +45,7 @@ La página es responsive para PC, tablet y celular.
 
 También se agregó de manera adicional, un cuadro de estadísticas por tipo de pokemon, para que los usuarios puedan conocer que tipos de pokémon son más abundantes en el universo del juego.
 
-Fue testeado al 100% de sus líneas, y probado con usuarios, para saber si habían errores o bug por corregir.
+Fue testeado al 100% de sus líneas, y probado con usuarios, para saber si habían errores o bug por corregir; también se consumió la data de JSON.
 
 ## 3. Historias de usuarios
 
@@ -68,8 +68,6 @@ Prototipo de alta fidelidad: https://scene.zeplin.io/project/6421b04ed5549922e10
 * Nos informaron de unos bugs en la ventanas modal de algunos pokémon, no mostraba la data completa. Lo solucionamos limitando el filtro de la data a pokemon que sobrepasaban del n°251, lo cual originaba el error.
 
 ## 6. Objetivos de aprendizaje
-
-Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en tu proyecto. Piensa en eso al decidir tu estrategia de trabajo.
 
 ### HTML
 
@@ -262,28 +260,16 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [Pruebas con Usuarios 1 — ¿Qué, cuándo y para qué testeamos?](https://eugeniacasabona.medium.com/pruebas-con-usuarios-1-qu%C3%A9-cu%C3%A1ndo-y-para-qu%C3%A9-testeamos-7c3a89b4b5e7)
 </p></details>
 
-
-* ¿Quiénes son los principales usuarios de producto?
-* ¿Cuáles son los objetivos de estos usuarios en relación con el producto?
-* ¿Cuáles son los datos más relevantes que quieren ver en la interfaz y por qué?
-* ¿Cuándo utilizan o utilizarían el producto?
-* Toda tu investigación previa debe tener como resultado todas las Historias
-  de Usuario de tu proyecto.
-* No hagas los prototipos de alta fidelidad de todas tus Historias. Comienza
-  solamente por los que se necesiten para tu Sprint 1 (semana 1 de trabajo). Más
-  pistas en la guía de organización para el proyecto.
-
-
 ## 7. Checklist
 
-* [x] Usa VanillaJS.
-* [x] Pasa linter (`npm run pretest`)
+* [:heavy_check_mark:] Usa VanillaJS.
+* :heavy_check_mark: Pasa linter (`npm run pretest`)
 * [x] Pasa tests (`npm test`)
 * [x] Pruebas unitarias cubren un mínimo del 70% de statements, functions y
   lines y branches.
-* [ ] Incluye _Definición del producto_ clara e informativa en `README.md`.
+* [x] Incluye _Definición del producto_ clara e informativa en `README.md`.
 * [x] Incluye historias de usuario en `README.md`.
-* [ ] Incluye _sketch_ de la solución (prototipo de baja fidelidad) en
+* [x] Incluye _sketch_ de la solución (prototipo de baja fidelidad) en
   `README.md`.
 * [x] Incluye _Diseño de la Interfaz de Usuario_ (prototipo de alta fidelidad)
   en `README.md`.
