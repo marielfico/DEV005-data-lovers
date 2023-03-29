@@ -262,21 +262,21 @@ Prototipo de alta fidelidad: https://scene.zeplin.io/project/6421b04ed5549922e10
 
 ## 7. Checklist
 
-* [:heavy_check_mark:] Usa VanillaJS.
-* :heavy_check_mark: Pasa linter (`npm run pretest`)
-* [x] Pasa tests (`npm test`)
-* [x] Pruebas unitarias cubren un mínimo del 70% de statements, functions y
+:heavy_check_mark: Usa VanillaJS.
+:heavy_check_mark: Pasa linter (`npm run pretest`)
+:heavy_check_mark: Pasa tests (`npm test`)
+:heavy_check_mark: Pruebas unitarias cubren un mínimo del 70% de statements, functions y
   lines y branches.
-* [x] Incluye _Definición del producto_ clara e informativa en `README.md`.
-* [x] Incluye historias de usuario en `README.md`.
-* [x] Incluye _sketch_ de la solución (prototipo de baja fidelidad) en
+:heavy_check_mark: Incluye _Definición del producto_ clara e informativa en `README.md`.
+:heavy_check_mark: Incluye historias de usuario en `README.md`.
+:heavy_check_mark: Incluye _sketch_ de la solución (prototipo de baja fidelidad) en
   `README.md`.
-* [x] Incluye _Diseño de la Interfaz de Usuario_ (prototipo de alta fidelidad)
+:heavy_check_mark: Incluye _Diseño de la Interfaz de Usuario_ (prototipo de alta fidelidad)
   en `README.md`.
-* [x] Incluye link a Zeplin en `README.md`.
-* [x] Incluye el listado de problemas que detectaste a través de tests de
+:heavy_check_mark: Incluye link a Zeplin en `README.md`.
+:heavy_check_mark: Incluye el listado de problemas que detectaste a través de tests de
   usabilidad en el `README.md`.
-* [x] UI: Muestra lista y/o tabla con datos y/o indicadores.
-* [x] UI: Permite ordenar data por uno o más campos (asc y desc).
-* [x] UI: Permite filtrar data en base a una condición.
-* [x] UI: Es _responsive_.
+:heavy_check_mark: UI: Muestra lista y/o tabla con datos y/o indicadores.
+:heavy_check_mark: UI: Permite ordenar data por uno o más campos (asc y desc).
+:heavy_check_mark: UI: Permite filtrar data en base a una condición.
+:heavy_check_mark: UI: Es _responsive_.
